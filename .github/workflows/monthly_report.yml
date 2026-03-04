@@ -1,0 +1,28 @@
+name: Monthly Slack Emoji Report
+
+on:
+  schedule:
+    # 매월 1일 한국 시간(KST) 오전 9시 (UTC 00:00) 실행
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # 수동으로도 실행 가능하게 함
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install slack_sdk
+
+      - name: Run analysis
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          CHANNEL_ID: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: python analysis.py
