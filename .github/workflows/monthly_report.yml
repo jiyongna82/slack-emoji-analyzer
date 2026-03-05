@@ -23,6 +23,6 @@ jobs:
 
       - name: Run analysis
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          CHANNEL_ID: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
+          CHANNEL_ID: ${{secrets.CHANNEL_ID}}
         run: python analysis.py
