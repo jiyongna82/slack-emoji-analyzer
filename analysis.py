@@ -6,8 +6,8 @@ from slack_sdk.errors import SlackApiError
 
 # [테스트용] GitHub Secrets를 쓰지 않고 직접 값을 넣습니다.
 # 성공 확인 후에는 다시 os.environ.get 방식으로 돌려놓으면 됩니다.
-SLACK_BOT_TOKEN = "xoxb-7406884674743-9219227059376-K2MNiHgZmm2tFU0EWl96RJUS" 
-CHANNEL_ID = "C07DZJ66FKJ" 
+SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN")
+CHANNEL_ID = os.environ.get("CHANNEL_ID") 
 
 client = WebClient(token=SLACK_BOT_TOKEN)
 
