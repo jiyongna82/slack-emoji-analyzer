@@ -36,7 +36,7 @@ def run_monthly_analysis():
         last_day_prev_month = first_day_this_month - timedelta(seconds=1)
         first_day_prev_month = last_day_prev_month.replace(day=1, hour=0, minute=0, second=0)
 
-        oldest_ts = first_day_prev_month.timestamp()
+        oldest_ts = (datetime.now() - timedelta(days=30)).timestamp()
         latest_ts = first_day_this_month.timestamp()
         target_month_str = first_day_prev_month.strftime("%Y년 %m월")
 
